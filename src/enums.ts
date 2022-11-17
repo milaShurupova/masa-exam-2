@@ -5,10 +5,9 @@ export enum Status {
 
 export enum Role {
     Administrator = 1,
-    RegularUser = 3
+    RegularUser = 2
 }
 
-// dont forget to change Regular User to 2 for Ilya database
 
 export enum AppError {
     General = "General",
