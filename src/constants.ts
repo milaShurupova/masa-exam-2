@@ -15,6 +15,7 @@ export class Queries {
     public static AddWhiteBoardType: string = "INSERT white_board_type (white_board_type, create_date, update_date, create_user_id, update_user_id, status_id) VALUES (?, ?, ?, ?, ?, ?)";
     public static DeleteWhiteBoardTypeById: string = "UPDATE white_board_type SET update_date = ?, update_user_id = ?, status_id = ? WHERE id = ? AND status_id = ?";
 
+    public static GetUserByLogin: string = "SELECT id, password, role_id FROM [user] WHERE login = ?";
     public static UpdateUserById: string = "UPDATE [user] SET first_name = ?, last_name = ?, update_date = ?, update_user_id = ? WHERE id = ? AND status_id = ?";
     public static AddUser: string = "INSERT [user] (first_name, last_name, login, password, role_id, create_date, update_date, create_user_id, update_user_id, status_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     public static DeleteUserById: string = "UPDATE [user] SET update_date = ?, update_user_id = ?, status_id = ? WHERE id = ? AND status_id = ?";
@@ -34,6 +35,13 @@ export class Queries {
                                             WHERE id = ? AND status_id = ?`;
     public static AddRoom: string = `INSERT [dbo].[room] (room_number, room_floor, is_has_projector, white_board_type_id, create_user_id, update_user_id, create_date, update_date, status_id)
                                      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`
+
+    public static GetTeachers: string = `SELECT t.id, t.first_name, t.last_name, t.is_male, t.birthdate, 
+                                                p.id as profession_id, p.title as profession, tp.graduation_year
+                                        FROM teacher t
+                                        INNER JOIN teacher_to_profession tp ON t.id = tp.teacher_id
+                                        INNER JOIN profession p ON tp.profession_id = p.id
+                                        WHERE status_id = ?`;
 
     public static GetTeacherById: string = `SELECT t.id, t.first_name, t.last_name, t.is_male, t.birthdate, 
                                                 p.id as profession_id, p.title as profession, tp.graduation_year

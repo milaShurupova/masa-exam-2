@@ -5,7 +5,7 @@ import ErrorService from "./error.service";
 
 export class RequestHelper {
 
-    public static ParseNumericInput(input: string): number {
+    public static ParseNumericInput(input: string): number | systemError {
         let result: number = NON_EXISTENT_ID;
 
         if (isNaN(Number(input))) {

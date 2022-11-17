@@ -210,6 +210,24 @@ class SchoolService implements ISchoolService {
         });
     }
 
+    public getTeachers(): Promise<localTeacher[]> {
+        return new Promise<localTeacher[]>((resolve, reject) => {
+            const result: teacher[] = [];
+
+            SqlHelper.executeQueryArrayResult<localTeacher>(Queries.GetTeachers, Status.Active)
+                .then((queryResult: localTeacher[]) => {
+                    // queryResult.forEach((teacher: localTeacher) => {
+                    //     result.push(this.parseLocalTeacher(teacher));
+                    // });
+
+                    resolve(queryResult);
+                })
+                .catch((error: systemError) => {
+                    reject(error);
+                });
+        });
+    }
+
     public async getTeacherById(id: number): Promise<teacher> {
         return new Promise<teacher>((resolve, reject) => {
             SqlHelper.executeQueryArrayResult<localTeacher>(Queries.GetTeacherById, id)

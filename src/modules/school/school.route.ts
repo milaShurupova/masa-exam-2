@@ -25,6 +25,7 @@ export class SchoolRoutes extends RouteConfig {
         this.app.route(`/${this.baseUrl}/room`).post([AuthMiddleware.verifyToken([Role.RegularUser]), SchoolController.addRoom]);
         this.app.route(`/${this.baseUrl}/room/:id`).put([AuthMiddleware.verifyToken([Role.RegularUser]), SchoolController.updateRoomById]);
         
+        this.app.route(`/${this.baseUrl}/teachers`).get([AuthMiddleware.verifyToken([Role.RegularUser]), SchoolController.getTeachers]);
         this.app.route(`/${this.baseUrl}/teacher/:id`).get([AuthMiddleware.verifyToken([Role.RegularUser]), SchoolController.getTeacherById]);
         this.app.route(`/${this.baseUrl}/teacher/:id`).put([AuthMiddleware.verifyToken([Role.RegularUser]), SchoolController.updateTeacherById]);
         
