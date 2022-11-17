@@ -18,22 +18,22 @@
  - [ ] Get the request from the router, treat the request parameters, prepare the response of the server to the consumer
  - [ ] Keep state of a specific logic portion of the system, provide processing of the data passed from the different controllers, parse the data and returned the processed response
  - [ ] To be the first element in the system that should service the consumer for his CRUD request to the server
- - [ ] To provide services to the system that do not require a state but should be used across the whole system
+ - [+] To provide services to the system that do not require a state but should be used across the whole system
 
 3. **What is a foreign key?** *=> 2 points*
  - [ ] A key by which the JWT token is signed
  - [ ] A pair security key for a private key. This key is stored in online repository for asymmetric encryption processing
- - [ ] A way to link between 2 tables in the relational DB
+ - [+] A way to link between 2 tables in the relational DB
  - [ ] Such a term does not exist
 
 4. **What is the code of a request redirection in HTTP protocol?** *=> 2 points*
  - [ ] 2xx
- - [ ] 3xx
+ - [+] 3xx
  - [ ] 4xx
  - [ ] 5xx
 
 5. **What is a Jira ticket?** *=> 2 points*
- - [ ] A definition of a task that should be done or details of a bug opened in the system
+ - [+] A definition of a task that should be done or details of a bug opened in the system
  - [ ] A ticket by which the symmtric authentication is being processed. This key is tored in the operating system
  - [ ] A portion of data used to authenticate against a nodejs server
  - [ ] A synonym for a JWT token
@@ -48,22 +48,22 @@
  - [ ] Password
  - [ ] Encryption
  - [ ] A private key
- - [ ] Secret
+ - [+] Secret
 
 8. **What is dotenv?** *=> 2 points*
  - [ ] An environment of an operational system like release, production, etc.
- - [ ] An npm package that provides the ability to set different system parameters for different system environments
+ - [+] An npm package that provides the ability to set different system parameters for different system environments
  - [ ] A library of .Net nodejs environment
  - [ ] An npm package that is added by default while creating a new nodejs server
 
 9. **How will you ensure a specific value in a DB column that is not the IDENTITY column will not be duplicate? (more than a single answer can be selected)** *=> 2 points*
  - [ ] Add another private key on this column
  - [ ] Add a UNIQUE CONSTRAINT to this column
- - [ ] Add a UNIQUE INDEX to this column
+ - [+] Add a UNIQUE INDEX to this column
  - [ ] I will add a method on my server to ensure no duplicates are recorded in the DB for this column
 
 10. **What is a log level** *=> 2 points*
- - [ ] Log level is a level at which and up log messages will be recorded in any log target
+ - [+] Log level is a level at which and up log messages will be recorded in any log target
  - [ ] It's a level of details to which a design of a task should be aligned
  - [ ] A level of DB logs storage to provide log shipping for a better system performance
  - [ ] There is no correct answer
@@ -105,13 +105,31 @@ You need to write a query that returns for each user a full data. Consider that 
 | Mary Smith | Klark Smith | Cashier |
 | Patrice Raymond | Not an eployee |  |
 
-18. **Write a method in JS/TS that gets as an argument 2 dates and returns a boolean value of whether those dates share the same month**. *=> 5 points*
+(+) 18. **Write a method in JS/TS that gets as an argument 2 dates and returns a boolean value of whether those dates share the same month**. *=> 5 points*
 
-19. **Explain the following piece of code:** *=> 5 points*
+function compareMonth(date1: Date, date2: Date): boolean {
+
+    let month1: number = date1.getMonth();
+    let month2: number = date2.getMonth();
+    let result: boolean;
+
+    if (month1 === month2) {
+        result = true;
+    } else {
+        result = false;
+    }
+
+    return result;
+
+}
+
+(+) 19. **Explain the following piece of code:** *=> 5 points* 
 
         public static dictionaryToArrayOfObjects<T>(input: _.Dictionary<T>): T[] {
             return _.map(Object.getOwnPropertyNames(input), (key: string) => input[key]);
         }
+
+This is a generic method, which takes a dictionary as an input parameter, and returns an array of keys of this dictionary instead of dictionary (using underscore map method)
 
 20. **Fix the following code and fill the required gaps in it by the coding standards. The purpose of this code is to verify the user is a member of a specific role and in case the user is, a true return value should be returned by the isUserPermitted() method, otherwise false. Treat the comments as actual code written that should not be changed.** *=> 15 points*
 
